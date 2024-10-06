@@ -34,7 +34,7 @@ O projeto está organizado em três arquivos principais, cada um deles contendo 
 Exemplo do arquivo .env:
 
     ```env 
-    JWT_SECRET=seuSegredoSuperForteAqui ```
+    JWT_SECRET=seuSegredoSuperForteAqui```
 
 ## Detalhes dos Exemplos
 
