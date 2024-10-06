@@ -1,6 +1,9 @@
 import express, { json } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+
+dotenv.config();
 
 const app = express();
 const SECRET = "12345";
@@ -19,12 +22,12 @@ async function encriptar(texto, saltos = 10) {
 }
 
 function criarJWT(usuario) {
-    return jwt.sign(usuario, SECRET, { expiresIn: "1h" })
+    return jwt.sign(usuario, process.env.JWT_SECRET, { expiresIn: "1h" })
 }
 
 function validarJWT(token) {
     try {
-        const decoded = jwt.verify(token, SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         return { valido: true, usuario: decoded };
     } catch (err) {
         console.log(`Ocorreu um erro: ${err}`);
